@@ -10,7 +10,7 @@ const questions = () => {
             type: 'input',
             name: 'title',
             message: 'What is the name of your program?',
-            validate: nameInput => {
+            validate: titleInput => {
                 if (titleInput) {
                     return true;
                 } else {
