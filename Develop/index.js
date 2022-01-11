@@ -44,9 +44,21 @@ const questions = () => {
                     return false;
                 }
             }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmCredits',
+            message: 'Would you like to provide credits?',
+            default: true
+        },
+        {
+            type: 'input',
+            name: 'credits',
+            message: 'Please list the names of the people you would like to credit.',
+            when: ({ confirmCredits }) => confirmCredits
         }
-    ])
-}
+    ]);
+};
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
