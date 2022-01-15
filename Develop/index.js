@@ -1,64 +1,8 @@
 // TODO: Include packages needed for this application
-const { writeToFile } = require('./utils/generateMarkdown.js');
-const inquirer = require('inquirer');
-const generatePage = require('');
+
 
 // TODO: Create an array of questions for user input
-const questions = () => {
-    return inquirer.prompt([
-        {
-            type: 'input',
-            name: 'title',
-            message: 'What is the name of your program?',
-            validate: titleInput => {
-                if (titleInput) {
-                    return true;
-                } else {
-                    console.log('Please enter a title!');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'install',
-            message: 'What are your installation instructions? (Required)',
-            validate: installInput => {
-                if (installInput) {
-                    return true
-                } else {
-                    console.log('An installation guide is required!');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'usage',
-            message: 'Explain how your program is used. (Required)',
-            validate: usageInput => {
-                if (usageInput) {
-                    return true
-                } else {
-                    console.log('Please explain how your program is used!');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'confirm',
-            name: 'confirmCredits',
-            message: 'Would you like to provide credits?',
-            default: true
-        },
-        {
-            type: 'input',
-            name: 'credits',
-            message: 'Please list the names of the people you would like to credit.',
-            when: ({ confirmCredits }) => confirmCredits
-        }
-    ]);
-};
+const questions = []
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
