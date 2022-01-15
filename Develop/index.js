@@ -1,4 +1,5 @@
 // TODO: Include packages needed for this application
+<<<<<<< HEAD
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generatePage = require('');
@@ -59,6 +60,11 @@ const questions = () => {
         }
     ]);
 };
+=======
+
+// TODO: Create an array of questions for user input
+const questions = [];
+>>>>>>> parent of 1ea2aa0 (Update index.js)
 
 // TODO: Create a function to write README file
 fs.writeFile('readme.md', generatePage() err => {
