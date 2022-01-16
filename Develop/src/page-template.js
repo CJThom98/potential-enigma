@@ -1,67 +1,26 @@
-const generateProject = projectText => {
-    if (!projectText) {
-        return "";
-    }
-
+function generateMarkdown(data) {
     return `
-        ${project}
-    `;
-};
-
-const generateDescription = descriptionText => {
-    if (!descriptionText) {
-        return "";
-    }
-
-    return `
-        ${description}
-    `;
-};
-
-const generateInstall = installText => {
-    if (!installText) {
-        return "";
-    }
-
-    return `
-        ${installation}
-    `;
-};
-
-const generateUsage = usageText => {
-    if (!usageText) {
-        return "";
-    }
-    return `
-        ${usage}
-    `;
-};
-
-const generateGithub = githubText => {
-    if (!githubText) {
-        return "";
-    }
-    return `
-        ${github}
-    `;
-};
-
-module.exports = templateData = (data) => { 
-    //const { project, description, installation, usage, github } = templateData;
-    
-    return`
-# ${generateProject(data.project)}
+# ${data.project}
 
 ## Description
-    ${generateDescription(description)}
+    ${data.description}
+    
+[Installation](#installation)
+[Usage](#usage)
+[Credits](#credits)
+[GitHub](#github)
 
 ## Installation
-    ${generateInstall(installation)}
+    ${data.installation}
 
 ## Usage
-    ${generateUsage(usage)}
+    ${data.usage}
 
-## My GitHub Profile
-    ${generateGithub(github)}
-    `;
-};
+## Credits
+    ${data.credits}
+
+## GitHub
+    ${data.github}
+  `;
+}
+module.exports = generateMarkdown;
