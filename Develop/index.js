@@ -1,16 +1,12 @@
-// TODO: Include packages needed for this application
+const fs = require('fs');
+const generatePage = require('./src/page-template.js');
 
-// TODO: Create an array of questions for user input
-//const questions = []
+const readmeDataArgs = process.argv.slice(2);
 
-// TODO: Create a function to write README file
-//function writeToFile(fileName, data) {}
+const [project, description, installation, usage, github] = readmeDataArgs;
 
-// TODO: Create a function to initialize app
-//function init() {}
+fs.writeFile('./README.md', generatePage(project, description, installation, usage, github), err => {
+    if (err) throw new Error(err);
 
-// Function call to initialize app
-//init();
-
-const readmeDataArgs = process.argv.slice(2, process.argv.length);
-console.log(readmeDataArgs);
+    console.log('Your ReadMe is complete! Check out README.md to see the output!');
+});
