@@ -46,11 +46,11 @@ const generateGithub = githubText => {
     `;
 };
 
-module.exports = templateData => { 
-    const { project, description, installation, usage, github } = templateData;
+module.exports = templateData = (data) => { 
+    //const { project, description, installation, usage, github } = templateData;
     
     return`
-# ${generateProject(project)}
+# ${generateProject(data.project)}
 
 ## Description
     ${generateDescription(description)}
