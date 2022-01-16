@@ -32,10 +32,10 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'installion', 
+            name: 'installation', 
             message: 'Explain how to intall your program.',
-            validate: installtionInput => {
-                if (installtionInput) {
+            validate: installationInput => {
+                if (installationInput) {
                     return true;
                 } else {
                     console.log('Describe the installtion process');
@@ -55,6 +55,11 @@ const promptUser = () => {
                     return false;
                 }
             }
+        },
+        {
+            type: 'input',
+            name: 'credits',
+            message: 'Please list the people who contributed to the project.'
         },
         {
             type: 'input',
