@@ -1,23 +1,15 @@
 const inquirer = require('inquirer');
-// const fs = require('fs');
-// const generatePage = require('./src/page-template.js');
-
-// const pageREADME = generatePage(project, description, installation, usage, github);
-
-// fs.writeFile('./README.md', pageREADME, err => {
-//     if (err) throw err;
-
-//     console.log('Your ReadMe is complete! Check out README.md to see the output!');
-// });
+const fs = require('fs');
+const generatePage = require('./src/page-template.js');
 
 const promptUser = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'title',
+            name: 'project',
             message: 'What is the name of your project? (Required)',
-            validate: titleInput => {
-                if (titleInput) {
+            validate: projectInput => {
+                if (projectInput) {
                     return true;
                 } else {
                     console.log('Please enter the title of your project!');
@@ -80,4 +72,13 @@ const promptUser = () => {
     ]);
 };
 
-promptUser().then(answers => console.log(answers));
+promptUser()
+    .then(readmeData => {
+        const pageREADME = generatePage(readmeData);
+
+        fs.writeFile('./README.md', pageREADME, err => {
+            if (err) throw new Error(err);
+
+            console.log('Page created! Checkout README.md in this directory to see it!');
+        });
+    });
